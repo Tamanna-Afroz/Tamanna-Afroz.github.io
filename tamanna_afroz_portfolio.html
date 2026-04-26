@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tamanna Afroz — Lecturer, CSE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sapphire:    #1b4f8a;
+  --sapphire-dk: #13396a;
+  --coral:       #e8445a;
+  --coral-lt:    #ff6b7a;
+  --teal:        #00a896;
+  --teal-lt:     #02c39a;
+  --sky:         #eaf4ff;
+  --sky-md:      #d1e8ff;
+  --white:       #ffffff;
+  --offwhite:    #f6f9ff;
+  --text:        #1a2236;
+  --muted:       #5c6b84;
+  --border:      #dde6f5;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.7; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.9rem 4rem;
+  box-shadow: 0 2px 20px rgba(27,79,138,0.08);
+}
+.nav-brand { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--sapphire); font-weight: 700; }
+.nav-brand span { color: var(--coral); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.83rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--coral);
+  transform: scaleX(0); transition: transform 0.2s;
+}
+.nav-links a:hover { color: var(--sapphire); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--sapphire-dk) 0%, var(--sapphire) 55%, #2271b8 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 2rem 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; }
+.blob1 { width: 420px; height: 420px; background: var(--teal); top: -100px; right: -100px; }
+.blob2 { width: 320px; height: 320px; background: var(--coral); bottom: -80px; left: -60px; }
+.hero-inner { position: relative; z-index: 1; max-width: 760px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25);
+  color: #b8e0ff; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 600; padding: 0.45rem 1.4rem; border-radius: 100px; margin-bottom: 2rem;
+}
+.hero-dot { width: 7px; height: 7px; background: var(--teal-lt); border-radius: 50%; display: inline-block; }
+.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5rem); color: var(--white); line-height: 1.1; margin-bottom: 1rem; font-weight: 700; }
+.hero-name em { font-style: italic; color: #7dd3fc; }
+.hero-role { font-size: 1.05rem; color: #93c5fd; letter-spacing: 0.05em; font-weight: 300; margin-bottom: 2rem; }
+.hero-divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+.hero-divider-line { width: 60px; height: 1px; background: rgba(255,255,255,0.25); }
+.hero-divider-dot { width: 8px; height: 8px; background: var(--coral-lt); border-radius: 50%; }
+.hero-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 2.8rem; line-height: 1.65; }
+.hero-cta {
+  display: inline-block; background: var(--coral); color: var(--white); text-decoration: none;
+  padding: 0.9rem 2.8rem; font-weight: 600; font-size: 0.88rem;
+  letter-spacing: 0.1em; text-transform: uppercase; border-radius: 100px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(232,68,90,0.4);
+}
+.hero-cta:hover { background: var(--coral-lt); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(232,68,90,0.45); }
+
+section { padding: 5.5rem 2rem; }
+.container { max-width: 1020px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+.section-eyebrow {
+  display: inline-block; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+  font-weight: 600; color: var(--coral); background: rgba(232,68,90,0.08);
+  padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 0.9rem;
+}
+.section-title { font-family: 'Playfair Display', serif; font-size: 2.3rem; color: var(--sapphire); font-weight: 700; line-height: 1.2; }
+.section-rule { width: 40px; height: 3px; background: var(--teal); margin: 1rem auto 0; border-radius: 2px; }
+
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 4rem; align-items: start; }
+.profile-card {
+  background: linear-gradient(160deg, var(--sapphire) 0%, #2271b8 100%);
+  border-radius: 20px; padding: 2.5rem 2rem; text-align: center;
+  position: relative; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(27,79,138,0.22);
+}
+.profile-card::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 180px; height: 180px; background: rgba(0,168,150,0.2); border-radius: 50%;
+}
+.avatar-ring {
+  width: 110px; height: 110px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); border: 3px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+}
+.avatar-initials { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--white); line-height: 1; }
+.profile-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); font-weight: 700; margin-bottom: 0.3rem; }
+.profile-role { font-size: 0.78rem; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 2rem; }
+.profile-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;
+}
+.stat-cell { background: rgba(255,255,255,0.07); padding: 1rem 0.5rem; text-align: center; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--white); line-height: 1; }
+.stat-label { font-size: 0.7rem; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.25rem; }
+.profile-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.profile-tag {
+  background: rgba(0,168,150,0.2); border: 1px solid rgba(0,168,150,0.35);
+  color: #5eead4; font-size: 0.73rem; padding: 0.3rem 0.8rem; border-radius: 100px; font-weight: 600;
+}
+.about-content h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--sapphire); font-weight: 700; margin-bottom: 1.2rem; line-height: 1.3; }
+.about-content p { color: var(--muted); font-size: 0.97rem; line-height: 1.85; margin-bottom: 1rem; }
+.about-content p:last-of-type { margin-bottom: 2rem; }
+.info-list { display: flex; flex-direction: column; gap: 0.9rem; }
+.info-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.9rem 1.1rem; background: var(--sky); border-radius: 10px; border-left: 3px solid var(--teal);
+}
+.info-icon { font-size: 1.1rem; flex-shrink: 0; }
+.info-text { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+.info-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+
+#skills { background: var(--offwhite); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+.skill-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.skill-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(27,79,138,0.1); border-color: var(--sky-md); }
+.skill-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
+.icon-blue { background: #eff6ff; }
+.icon-teal { background: #f0fdf9; }
+.icon-coral { background: #fff1f2; }
+.icon-purple { background: #f5f3ff; }
+.icon-amber { background: #fffbeb; }
+.icon-green { background: #f0fdf4; }
+.skill-card h4 { font-size: 0.97rem; font-weight: 600; color: var(--sapphire); margin-bottom: 1rem; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.skill-tag {
+  background: var(--sky); color: var(--sapphire); border: 1px solid var(--sky-md);
+  font-size: 0.75rem; padding: 0.28rem 0.7rem; border-radius: 100px; font-weight: 600; transition: background 0.15s;
+}
+.skill-tag:hover { background: var(--sky-md); }
+
+#projects { background: var(--white); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+.project-card {
+  border-radius: 16px; border: 1px solid var(--border); padding: 2rem;
+  position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; background: var(--white);
+}
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(27,79,138,0.1); }
+.project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.accent-coral::before { background: linear-gradient(90deg, var(--coral), var(--coral-lt)); }
+.accent-teal::before  { background: linear-gradient(90deg, var(--teal), var(--teal-lt)); }
+.accent-blue::before  { background: linear-gradient(90deg, var(--sapphire), #4f9fd4); }
+.project-num { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--border); line-height: 1; }
+.project-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.28rem 0.8rem; border-radius: 100px; margin-bottom: 0.9rem; }
+.tag-coral  { background: rgba(232,68,90,0.09);  color: var(--coral); }
+.tag-teal   { background: rgba(0,168,150,0.09);  color: var(--teal); }
+.tag-blue   { background: rgba(27,79,138,0.08);  color: var(--sapphire); }
+.project-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--sapphire); margin-bottom: 0.75rem; line-height: 1.35; }
+.project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.3rem; }
+.project-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tech-pill { font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 100px; font-weight: 600; border: 1px solid var(--border); color: var(--muted); transition: border-color 0.15s, color 0.15s; }
+.tech-pill:hover { border-color: var(--sapphire); color: var(--sapphire); }
+
+footer { background: var(--sapphire-dk); text-align: center; padding: 2.2rem; font-size: 0.85rem; color: #7da8d4; }
+footer strong { color: var(--white); font-weight: 600; }
+.footer-heart { color: var(--coral); }
+
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.in { opacity: 1; transform: none; }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+@media (max-width: 800px) {
+  nav { padding: 0.9rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .profile-card { max-width: 400px; margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Tamanna<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="hero-dot"></span>Academic Portfolio &amp; Profile</div>
+    <h1 class="hero-name"><em>Tamanna</em> Afroz</h1>
+    <p class="hero-role">Lecturer &nbsp;·&nbsp; Computer Science &amp; Engineering</p>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-dot"></div>
+      <div class="hero-divider-line"></div>
+    </div>
+    <p class="hero-quote">"Inspiring the next generation of engineers through curiosity, rigor, and innovation."</p>
+    <a href="#about" class="hero-cta">Explore My Work</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">Introduction</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="fade-up delay-1">
+        <div class="profile-card">
+          <div class="avatar-ring"><div class="avatar-initials">TA</div></div>
+          <div class="profile-name">Tamanna Afroz</div>
+          <div class="profile-role">Lecturer &mdash; CSE</div>
+          <div class="profile-stats">
+            <div class="stat-cell"><div class="stat-num">5+</div><div class="stat-label">Years Teaching</div></div>
+            <div class="stat-cell"><div class="stat-num">10+</div><div class="stat-label">Courses</div></div>
+            <div class="stat-cell"><div class="stat-num">6+</div><div class="stat-label">Projects</div></div>
+            <div class="stat-cell"><div class="stat-num">100+</div><div class="stat-label">Students</div></div>
+          </div>
+          <div class="profile-tags">
+            <span class="profile-tag">AI &amp; ML</span>
+            <span class="profile-tag">Research</span>
+            <span class="profile-tag">Education</span>
+            <span class="profile-tag">Web Dev</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content fade-up delay-2">
+        <h3>A Passion for Teaching &amp; Technology</h3>
+        <p>I am a dedicated Lecturer in Computer Science and Engineering with a deep commitment to excellence in education, research, and mentorship. My academic journey has been driven by the belief that knowledge, when shared with clarity and enthusiasm, has the power to transform futures.</p>
+        <p>My teaching philosophy centers on connecting theoretical foundations with real-world applications — equipping students with both the conceptual understanding and practical skills they need to thrive in an ever-evolving technological landscape.</p>
+        <p>Beyond the classroom, I am actively engaged in research that bridges academic inquiry and industry relevance.</p>
+        <div class="info-list">
+          <div class="info-item">
+            <span class="info-icon">🎓</span>
+            <div><div class="info-text">Computer Science &amp; Engineering</div><div class="info-sub">Department &amp; Field of Expertise</div></div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">🔬</span>
+            <div><div class="info-text">Machine Learning &amp; NLP Research</div><div class="info-sub">Active Research Areas</div></div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div><div class="info-text">Bangladesh</div><div class="info-sub">Location</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">Expertise</span>
+      <h2 class="section-title">Skills &amp; Competencies</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card fade-up delay-1">
+        <div class="skill-icon icon-blue">💻</div>
+        <h4>Programming Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C / C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up delay-2">
+        <div class="skill-icon icon-teal">📐</div>
+        <h4>Core CSE Subjects</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Data Structures</span><span class="skill-tag">Algorithms</span><span class="skill-tag">OS</span><span class="skill-tag">DBMS</span><span class="skill-tag">Networks</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up delay-3">
+        <div class="skill-icon icon-coral">🤖</div>
+        <h4>Research &amp; AI</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Machine Learning</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">NLP</span><span class="skill-tag">Data Analysis</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up delay-1">
+        <div class="skill-icon icon-purple">🛠️</div>
+        <h4>Tools &amp; Platforms</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span><span class="skill-tag">Linux</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Jupyter</span><span class="skill-tag">LaTeX</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up delay-2">
+        <div class="skill-icon icon-amber">📚</div>
+        <h4>Teaching &amp; Pedagogy</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Curriculum Design</span><span class="skill-tag">Academic Writing</span><span class="skill-tag">Mentoring</span><span class="skill-tag">Lab Supervision</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up delay-3">
+        <div class="skill-icon icon-green">🌐</div>
+        <h4>Web &amp; Software</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML / CSS</span><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">REST APIs</span><span class="skill-tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">Work &amp; Research</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card accent-coral fade-up delay-1">
+        <span class="project-num">01</span>
+        <span class="project-tag tag-coral">Machine Learning</span>
+        <h4>Bangla Sentiment Analysis Using Deep Learning</h4>
+        <p>Developed an NLP pipeline to classify sentiment in Bangla social media text using LSTM and transformer-based architectures for high-accuracy results.</p>
+        <div class="project-techs">
+          <span class="tech-pill">Python</span><span class="tech-pill">LSTM</span><span class="tech-pill">BERT</span><span class="tech-pill">NLP</span>
+        </div>
+      </div>
+      <div class="project-card accent-teal fade-up delay-2">
+        <span class="project-num">02</span>
+        <span class="project-tag tag-teal">Web Application</span>
+        <h4>Online Exam Management System</h4>
+        <p>Designed and built a full-stack platform for conducting, managing, and evaluating online examinations across multiple university departments.</p>
+        <div class="project-techs">
+          <span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">MySQL</span><span class="tech-pill">REST API</span>
+        </div>
+      </div>
+      <div class="project-card accent-blue fade-up delay-3">
+        <span class="project-num">03</span>
+        <span class="project-tag tag-blue">Computer Vision</span>
+        <h4>Automated Attendance via Face Recognition</h4>
+        <p>Built a real-time attendance system using facial recognition, reducing manual effort and improving classroom management accuracy significantly.</p>
+        <div class="project-techs">
+          <span class="tech-pill">OpenCV</span><span class="tech-pill">Python</span><span class="tech-pill">CNN</span><span class="tech-pill">SQLite</span>
+        </div>
+      </div>
+      <div class="project-card accent-coral fade-up delay-1">
+        <span class="project-num">04</span>
+        <span class="project-tag tag-coral">Data Science</span>
+        <h4>Predictive Analytics for Student Performance</h4>
+        <p>Applied supervised learning models to identify at-risk students early, enabling timely interventions and improved academic outcomes.</p>
+        <div class="project-techs">
+          <span class="tech-pill">Scikit-learn</span><span class="tech-pill">Pandas</span><span class="tech-pill">Random Forest</span><span class="tech-pill">Jupyter</span>
+        </div>
+      </div>
+      <div class="project-card accent-teal fade-up delay-2">
+        <span class="project-num">05</span>
+        <span class="project-tag tag-teal">Curriculum Dev</span>
+        <h4>Data Structures Lab Curriculum Redesign</h4>
+        <p>Overhauled the undergrad lab with hands-on challenges, peer-review grading, and project-based learning to boost student engagement.</p>
+        <div class="project-techs">
+          <span class="tech-pill">C++</span><span class="tech-pill">Java</span><span class="tech-pill">LMS</span><span class="tech-pill">Assessment Design</span>
+        </div>
+      </div>
+      <div class="project-card accent-blue fade-up delay-3">
+        <span class="project-num">06</span>
+        <span class="project-tag tag-blue">IoT</span>
+        <h4>Smart Classroom Monitoring System</h4>
+        <p>Prototyped an IoT-based system to monitor classroom environments and automate lighting and HVAC for energy efficiency.</p>
+        <div class="project-techs">
+          <span class="tech-pill">Arduino</span><span class="tech-pill">Raspberry Pi</span><span class="tech-pill">MQTT</span><span class="tech-pill">Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 <strong>Tamanna Afroz</strong> &nbsp;·&nbsp; Lecturer, CSE &nbsp;·&nbsp; Made with <span class="footer-heart">♥</span></p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
