@@ -1,416 +1,1204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Tamanna Afroz — Lecturer, CSE</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tamanna Afroz — Academic Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --sapphire:    #1b4f8a;
-  --sapphire-dk: #13396a;
-  --coral:       #e8445a;
-  --coral-lt:    #ff6b7a;
-  --teal:        #00a896;
-  --teal-lt:     #02c39a;
-  --sky:         #eaf4ff;
-  --sky-md:      #d1e8ff;
+  --teal:        #0a7275;
+  --teal-dark:   #085c5f;
+  --teal-deeper: #064749;
+  --teal-light:  #e6f4f4;
+  --teal-pale:   #f0f9f9;
+  --teal-mid:    #0d8e92;
+  --accent:      #e8a020;
+  --accent-lt:   #fdf3e1;
   --white:       #ffffff;
-  --offwhite:    #f6f9ff;
-  --text:        #1a2236;
-  --muted:       #5c6b84;
-  --border:      #dde6f5;
+  --bg:          #f2f4f5;
+  --surface:     #ffffff;
+  --text:        #1a2323;
+  --text-mid:    #334040;
+  --text-soft:   #5a6b6b;
+  --border:      #d0dadb;
+  --border-lt:   #e5ecec;
+  --serif:       'Playfair Display', Georgia, serif;
+  --sans:        'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.7; }
 
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0.9rem 4rem;
-  box-shadow: 0 2px 20px rgba(27,79,138,0.08);
-}
-.nav-brand { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--sapphire); font-weight: 700; }
-.nav-brand span { color: var(--coral); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  color: var(--muted); text-decoration: none;
-  font-size: 0.83rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
-  transition: color 0.2s; position: relative;
-}
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-  height: 2px; background: var(--coral);
-  transform: scaleX(0); transition: transform 0.2s;
-}
-.nav-links a:hover { color: var(--sapphire); }
-.nav-links a:hover::after { transform: scaleX(1); }
-
-#hero {
+body {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--sapphire-dk) 0%, var(--sapphire) 55%, #2271b8 100%);
-  display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 8rem 2rem 5rem;
-  position: relative; overflow: hidden;
 }
-.hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; }
-.blob1 { width: 420px; height: 420px; background: var(--teal); top: -100px; right: -100px; }
-.blob2 { width: 320px; height: 320px; background: var(--coral); bottom: -80px; left: -60px; }
-.hero-inner { position: relative; z-index: 1; max-width: 760px; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25);
-  color: #b8e0ff; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
-  font-weight: 600; padding: 0.45rem 1.4rem; border-radius: 100px; margin-bottom: 2rem;
-}
-.hero-dot { width: 7px; height: 7px; background: var(--teal-lt); border-radius: 50%; display: inline-block; }
-.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5rem); color: var(--white); line-height: 1.1; margin-bottom: 1rem; font-weight: 700; }
-.hero-name em { font-style: italic; color: #7dd3fc; }
-.hero-role { font-size: 1.05rem; color: #93c5fd; letter-spacing: 0.05em; font-weight: 300; margin-bottom: 2rem; }
-.hero-divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
-.hero-divider-line { width: 60px; height: 1px; background: rgba(255,255,255,0.25); }
-.hero-divider-dot { width: 8px; height: 8px; background: var(--coral-lt); border-radius: 50%; }
-.hero-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 2.8rem; line-height: 1.65; }
-.hero-cta {
-  display: inline-block; background: var(--coral); color: var(--white); text-decoration: none;
-  padding: 0.9rem 2.8rem; font-weight: 600; font-size: 0.88rem;
-  letter-spacing: 0.1em; text-transform: uppercase; border-radius: 100px;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(232,68,90,0.4);
-}
-.hero-cta:hover { background: var(--coral-lt); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(232,68,90,0.45); }
 
-section { padding: 5.5rem 2rem; }
-.container { max-width: 1020px; margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 3.5rem; }
-.section-eyebrow {
-  display: inline-block; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
-  font-weight: 600; color: var(--coral); background: rgba(232,68,90,0.08);
-  padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 0.9rem;
+/* ─── HEADER ──────────────────────────────────────────── */
+.site-header {
+  background: var(--teal);
+  position: relative;
+  overflow: hidden;
 }
-.section-title { font-family: 'Playfair Display', serif; font-size: 2.3rem; color: var(--sapphire); font-weight: 700; line-height: 1.2; }
-.section-rule { width: 40px; height: 3px; background: var(--teal); margin: 1rem auto 0; border-radius: 2px; }
 
-#about { background: var(--white); }
-.about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 4rem; align-items: start; }
+.site-header::after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 48px solid rgba(255,255,255,0.055);
+  pointer-events: none;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  right: 80px;
+  bottom: -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 32px solid rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 44px 36px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.name-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.header-name {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: 0.3px;
+}
+
+.header-role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.role-pill {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.header-tagline {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.82);
+  max-width: 540px;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 240px;
+}
+
+.citem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.88);
+  font-size: 13.5px;
+  font-weight: 400;
+  transition: color 0.15s;
+}
+
+.citem:hover { color: #fff; }
+
+.cicon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
+/* ─── STATS STRIP ─────────────────────────────────────── */
+.stats-strip {
+  background: var(--teal-dark);
+  border-bottom: 3px solid var(--accent);
+}
+
+.stats-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 44px;
+  display: flex;
+}
+
+.stat-item {
+  padding: 14px 28px 13px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-item:first-child { padding-left: 0; }
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-desc {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.35;
+}
+
+/* ─── NAV ─────────────────────────────────────────────── */
+.site-nav {
+  background: var(--white);
+  border-bottom: 2px solid var(--border-lt);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 44px;
+  display: flex;
+  gap: 2px;
+}
+
+.nav-inner a {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 13px 16px 11px;
+  border-bottom: 3px solid transparent;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+  display: block;
+}
+
+.nav-inner a:hover {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+  background: var(--teal-pale);
+}
+
+.nav-inner a.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+/* ─── PAGE LAYOUT ─────────────────────────────────────── */
+.page-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 30px 44px 54px;
+}
+
+.row-full { margin-bottom: 22px; }
+
+.row-cols {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 22px;
+}
+
+.col-left  { display: flex; flex-direction: column; gap: 20px; }
+.col-right { display: flex; flex-direction: column; gap: 20px; }
+
+.row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+/* ─── CARDS ───────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-lt);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border-lt);
+  background: var(--teal-pale);
+}
+
+.card-head h2 {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.card-head .ch-rule { flex: 1; height: 1px; background: var(--border); }
+
+.card-head .ch-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--teal);
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
+.card-body { padding: 16px 18px; }
+
+/* ─── PROFILE BANNER ──────────────────────────────────── */
 .profile-card {
-  background: linear-gradient(160deg, var(--sapphire) 0%, #2271b8 100%);
-  border-radius: 20px; padding: 2.5rem 2rem; text-align: center;
-  position: relative; overflow: hidden;
-  box-shadow: 0 20px 60px rgba(27,79,138,0.22);
+  background: var(--surface);
+  border: 1px solid var(--border-lt);
+  border-left: 5px solid var(--teal);
+  border-radius: 6px;
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
 }
-.profile-card::before {
-  content: ''; position: absolute; top: -60px; right: -60px;
-  width: 180px; height: 180px; background: rgba(0,168,150,0.2); border-radius: 50%;
+
+.profile-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-mid);
+  line-height: 1.75;
 }
-.avatar-ring {
-  width: 110px; height: 110px; border-radius: 50%;
-  background: rgba(255,255,255,0.12); border: 3px solid rgba(255,255,255,0.3);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.2rem;
-}
-.avatar-initials { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--white); line-height: 1; }
-.profile-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); font-weight: 700; margin-bottom: 0.3rem; }
-.profile-role { font-size: 0.78rem; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 2rem; }
+
 .profile-stats {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1px; background: rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 176px;
 }
-.stat-cell { background: rgba(255,255,255,0.07); padding: 1rem 0.5rem; text-align: center; }
-.stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--white); line-height: 1; }
-.stat-label { font-size: 0.7rem; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.25rem; }
-.profile-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
-.profile-tag {
-  background: rgba(0,168,150,0.2); border: 1px solid rgba(0,168,150,0.35);
-  color: #5eead4; font-size: 0.73rem; padding: 0.3rem 0.8rem; border-radius: 100px; font-weight: 600;
-}
-.about-content h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--sapphire); font-weight: 700; margin-bottom: 1.2rem; line-height: 1.3; }
-.about-content p { color: var(--muted); font-size: 0.97rem; line-height: 1.85; margin-bottom: 1rem; }
-.about-content p:last-of-type { margin-bottom: 2rem; }
-.info-list { display: flex; flex-direction: column; gap: 0.9rem; }
-.info-item {
-  display: flex; align-items: center; gap: 1rem;
-  padding: 0.9rem 1.1rem; background: var(--sky); border-radius: 10px; border-left: 3px solid var(--teal);
-}
-.info-icon { font-size: 1.1rem; flex-shrink: 0; }
-.info-text { font-size: 0.9rem; color: var(--text); font-weight: 500; }
-.info-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
 
-#skills { background: var(--offwhite); }
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
-.skill-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+.pstat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--teal-pale);
+  border: 1px solid #d4e8e8;
+  border-radius: 5px;
+  padding: 8px 14px;
+  gap: 12px;
 }
-.skill-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(27,79,138,0.1); border-color: var(--sky-md); }
-.skill-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
-.icon-blue { background: #eff6ff; }
-.icon-teal { background: #f0fdf9; }
-.icon-coral { background: #fff1f2; }
-.icon-purple { background: #f5f3ff; }
-.icon-amber { background: #fffbeb; }
-.icon-green { background: #f0fdf4; }
-.skill-card h4 { font-size: 0.97rem; font-weight: 600; color: var(--sapphire); margin-bottom: 1rem; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-.skill-tag {
-  background: var(--sky); color: var(--sapphire); border: 1px solid var(--sky-md);
-  font-size: 0.75rem; padding: 0.28rem 0.7rem; border-radius: 100px; font-weight: 600; transition: background 0.15s;
+
+.pstat-val {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--teal);
+  line-height: 1;
 }
-.skill-tag:hover { background: var(--sky-md); }
 
-#projects { background: var(--white); }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
-.project-card {
-  border-radius: 16px; border: 1px solid var(--border); padding: 2rem;
-  position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; background: var(--white);
+.pstat-lbl {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-align: right;
+  line-height: 1.3;
 }
-.project-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(27,79,138,0.1); }
-.project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-.accent-coral::before { background: linear-gradient(90deg, var(--coral), var(--coral-lt)); }
-.accent-teal::before  { background: linear-gradient(90deg, var(--teal), var(--teal-lt)); }
-.accent-blue::before  { background: linear-gradient(90deg, var(--sapphire), #4f9fd4); }
-.project-num { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--border); line-height: 1; }
-.project-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.28rem 0.8rem; border-radius: 100px; margin-bottom: 0.9rem; }
-.tag-coral  { background: rgba(232,68,90,0.09);  color: var(--coral); }
-.tag-teal   { background: rgba(0,168,150,0.09);  color: var(--teal); }
-.tag-blue   { background: rgba(27,79,138,0.08);  color: var(--sapphire); }
-.project-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--sapphire); margin-bottom: 0.75rem; line-height: 1.35; }
-.project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.3rem; }
-.project-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.tech-pill { font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 100px; font-weight: 600; border: 1px solid var(--border); color: var(--muted); transition: border-color 0.15s, color 0.15s; }
-.tech-pill:hover { border-color: var(--sapphire); color: var(--sapphire); }
 
-footer { background: var(--sapphire-dk); text-align: center; padding: 2.2rem; font-size: 0.85rem; color: #7da8d4; }
-footer strong { color: var(--white); font-weight: 600; }
-.footer-heart { color: var(--coral); }
+/* ─── EDUCATION ───────────────────────────────────────── */
+.edu-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 
-.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.fade-up.in { opacity: 1; transform: none; }
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
+.edu-table thead th {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  padding: 0 8px 8px;
+  border-bottom: 2px solid var(--teal);
+  text-align: left;
+}
 
-@media (max-width: 800px) {
-  nav { padding: 0.9rem 1.5rem; }
-  .nav-links { gap: 1.2rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .profile-card { max-width: 400px; margin: 0 auto; }
+.edu-table tbody tr {
+  border-bottom: 1px solid var(--border-lt);
+  transition: background 0.12s;
+}
+
+.edu-table tbody tr:hover { background: var(--teal-pale); }
+.edu-table tbody tr:last-child { border-bottom: none; }
+.edu-table td { padding: 8px; vertical-align: top; color: var(--text-mid); }
+
+.edu-deg  { font-weight: 700; color: var(--teal-dark); font-size: 13px; }
+.edu-inst { font-size: 11.5px; color: var(--text-soft); margin-top: 1px; }
+
+.cgpa-badge {
+  display: inline-block;
+  background: #e8f5ee;
+  color: #1a5c38;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.na-badge {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #999;
+  font-size: 11.5px;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+
+/* ─── SKILLS ──────────────────────────────────────────── */
+.skill-block { margin-bottom: 13px; }
+.skill-block:last-child { margin-bottom: 0; }
+
+.skill-cat {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--border-lt);
+}
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.stag {
+  background: var(--teal-pale);
+  border: 1px solid #c4dede;
+  color: var(--teal-dark);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
+  transition: background 0.13s, border-color 0.13s;
+}
+
+.stag:hover { background: #d5ebeb; border-color: var(--teal); }
+
+/* ─── AWARDS ──────────────────────────────────────────── */
+.award-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border-lt);
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.45;
+}
+
+.award-item:last-child { border-bottom: none; }
+
+.award-star { width: 15px; height: 15px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+/* ─── EXPERIENCE TIMELINE ─────────────────────────────── */
+.timeline { display: flex; flex-direction: column; }
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 0 16px;
+}
+
+.tl-item:not(:last-child) { padding-bottom: 22px; }
+
+.tl-left { display: flex; flex-direction: column; align-items: center; }
+
+.tl-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: 2.5px solid var(--white);
+  box-shadow: 0 0 0 2px var(--teal);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.tl-line { width: 2px; flex: 1; background: var(--border); margin-top: 4px; }
+
+.tl-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.tl-title {
+  font-family: var(--serif);
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--teal-dark);
+  line-height: 1.2;
+}
+
+.tl-duration {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #7a4a00;
+  white-space: nowrap;
+  background: var(--accent-lt);
+  padding: 2px 9px;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.tl-sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.tl-org  { font-size: 13px; font-weight: 600; color: var(--text-soft); }
+
+.tl-field {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+  border: 1px solid #c4dede;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.tl-resp { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+
+.tl-resp li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.tl-resp li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--teal);
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* ─── RESEARCH ────────────────────────────────────────── */
+.research-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-lt);
+}
+
+.research-item:first-child { padding-top: 0; }
+.research-item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+.pub-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  flex-wrap: wrap;
+}
+
+.badge-pub   { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; background: #e4f5eb; color: #1a5c38; }
+.badge-first { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; background: var(--accent-lt); color: #7a4a00; }
+.badge-conf  { font-size: 11px; font-weight: 600; color: var(--text-soft); background: var(--bg); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
+
+.pub-title {
+  font-family: var(--serif);
+  font-size: 14.5px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 7px;
+}
+
+.doi-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--teal-mid);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.doi-link:hover { color: var(--teal-dark); text-decoration: underline; }
+
+.thesis-card {
+  margin-top: 14px;
+  border: 1px solid #c4dede;
+  border-left: 4px solid var(--teal);
+  border-radius: 5px;
+  padding: 13px 16px;
+  background: var(--teal-pale);
+}
+
+.thesis-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 5px;
+}
+
+.thesis-title {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-mid);
+  line-height: 1.55;
+}
+
+/* ─── CERTIFICATIONS ──────────────────────────────────── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.cert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--text-mid);
+  padding: 8px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border-lt);
+  border-radius: 4px;
+  line-height: 1.45;
+  transition: background 0.13s, border-color 0.13s;
+}
+
+.cert-item:hover { background: var(--teal-pale); border-color: #c4dede; }
+.cert-chevron { color: var(--teal); font-size: 16px; font-weight: 700; line-height: 1.3; flex-shrink: 0; }
+
+/* ─── TRAINING ────────────────────────────────────────── */
+.training-card {
+  background: var(--surface);
+  border: 1px solid var(--border-lt);
+  border-top: 4px solid var(--teal);
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+
+.train-name { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--teal-dark); margin-bottom: 6px; line-height: 1.3; }
+
+.train-dur {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #7a4a00;
+  background: var(--accent-lt);
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.train-desc { font-size: 12.5px; color: var(--text-soft); line-height: 1.55; }
+
+/* ─── REFERENCES ──────────────────────────────────────── */
+.ref-card {
+  background: var(--surface);
+  border: 1px solid var(--border-lt);
+  border-radius: 6px;
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ref-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); }
+
+.ref-initial {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.ref-name { font-family: var(--serif); font-size: 15.5px; font-weight: 600; color: var(--text); line-height: 1.2; margin-bottom: 3px; }
+.ref-desg { font-size: 11px; font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 8px; }
+.ref-inst { font-size: 12.5px; color: var(--text-soft); line-height: 1.45; margin-bottom: 8px; }
+
+.ref-contact { font-size: 12px; color: var(--text-soft); display: flex; flex-direction: column; gap: 3px; }
+.ref-contact a { color: var(--teal); text-decoration: none; font-weight: 600; }
+.ref-contact a:hover { text-decoration: underline; }
+
+/* ─── FOOTER ──────────────────────────────────────────── */
+.site-footer {
+  background: var(--teal-deeper);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 18px 44px;
+  font-size: 12.5px;
+}
+
+.site-footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+.site-footer a:hover { color: #fff; }
+
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 820px) {
+  .header-inner  { grid-template-columns: 1fr; padding: 24px 20px; }
+  .header-right  { display: none; }
+  .stats-inner   { flex-wrap: wrap; padding: 0 20px; }
+  .nav-inner     { overflow-x: auto; padding: 0 16px; }
+  .page-wrap     { padding: 16px 18px 48px; }
+  .row-cols      { grid-template-columns: 1fr; }
+  .row-3         { grid-template-columns: 1fr; }
+  .profile-card  { grid-template-columns: 1fr; }
+  .profile-stats { flex-direction: row; flex-wrap: wrap; }
+  .cert-grid     { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-brand">Tamanna<span>.</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-  </ul>
+<!-- ─── HEADER ────────────────────────────────────────── -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="name-block">
+        <div class="avatar">TA</div>
+        <div>
+          <h1 class="header-name">Tamanna Afroz</h1>
+          <div class="header-role">
+            <span class="role-pill">Lecturer</span>
+            <span class="role-pill">Researcher</span>
+            <span class="role-pill">PhD Aspirant</span>
+          </div>
+        </div>
+      </div>
+      <p class="header-tagline">Educator with 5+ years of CS teaching experience, researching self-supervised learning for Bangla speech foundation models. Passionate about bridging academic research and real-world impact.</p>
+    </div>
+
+    <div class="header-right">
+      <a class="citem" href="mailto:tamannaafroz137@gmail.com">
+        <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+        tamannaafroz137@gmail.com
+      </a>
+      <a class="citem" href="tel:+8801749025943">
+        <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +880 1749-025943
+      </a>
+      <a class="citem" href="https://linkedin.com/in/tamanna-afroz" target="_blank" rel="noopener">
+        <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn Profile
+      </a>
+      <span class="citem">
+        <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Dhaka, Bangladesh
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── STATS STRIP ──────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-desc">Years<br>Teaching</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3.96</div>
+      <div class="stat-desc">B.Sc<br>CGPA</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.00</div>
+      <div class="stat-desc">M.Sc<br>CGPA</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2</div>
+      <div class="stat-desc">IEEE<br>Publications</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-desc">Languages<br>Spoken</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1k+</div>
+      <div class="stat-desc">YouTube<br>Subscribers</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── NAV ─────────────────────────────────────────── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="#profile">Profile</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#research">Research</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#training">Training</a>
+    <a href="#references">References</a>
+  </div>
 </nav>
 
-<section id="hero">
-  <div class="hero-blob blob1"></div>
-  <div class="hero-blob blob2"></div>
-  <div class="hero-inner">
-    <div class="hero-badge"><span class="hero-dot"></span>Academic Portfolio &amp; Profile</div>
-    <h1 class="hero-name"><em>Tamanna</em> Afroz</h1>
-    <p class="hero-role">Lecturer &nbsp;·&nbsp; Computer Science &amp; Engineering</p>
-    <div class="hero-divider">
-      <div class="hero-divider-line"></div>
-      <div class="hero-divider-dot"></div>
-      <div class="hero-divider-line"></div>
-    </div>
-    <p class="hero-quote">"Inspiring the next generation of engineers through curiosity, rigor, and innovation."</p>
-    <a href="#about" class="hero-cta">Explore My Work</a>
-  </div>
-</section>
+<!-- ─── PAGE BODY ────────────────────────────────────── -->
+<div class="page-wrap">
 
-<section id="about">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="section-eyebrow">Introduction</span>
-      <h2 class="section-title">About Me</h2>
-      <div class="section-rule"></div>
-    </div>
-    <div class="about-grid">
-      <div class="fade-up delay-1">
-        <div class="profile-card">
-          <div class="avatar-ring"><div class="avatar-initials">TA</div></div>
-          <div class="profile-name">Tamanna Afroz</div>
-          <div class="profile-role">Lecturer &mdash; CSE</div>
-          <div class="profile-stats">
-            <div class="stat-cell"><div class="stat-num">5+</div><div class="stat-label">Years Teaching</div></div>
-            <div class="stat-cell"><div class="stat-num">10+</div><div class="stat-label">Courses</div></div>
-            <div class="stat-cell"><div class="stat-num">6+</div><div class="stat-label">Projects</div></div>
-            <div class="stat-cell"><div class="stat-num">100+</div><div class="stat-label">Students</div></div>
-          </div>
-          <div class="profile-tags">
-            <span class="profile-tag">AI &amp; ML</span>
-            <span class="profile-tag">Research</span>
-            <span class="profile-tag">Education</span>
-            <span class="profile-tag">Web Dev</span>
-          </div>
+  <!-- Profile — full width -->
+  <div id="profile" class="row-full">
+    <div class="profile-card">
+      <p class="profile-text">A dedicated and organised educator with over five years of teaching experience, including approximately 3.5 years as a Lecturer at Northern University Bangladesh and over a year as a student tutor at BRAC University. Skilled in engaging students from diverse academic backgrounds through clear communication, empathy, and adaptive teaching methods. Committed to fostering student growth through accessible, well-structured lessons — and to advancing research at the intersection of machine learning and Bangla language technology.</p>
+      <div class="profile-stats">
+        <div class="pstat">
+          <div class="pstat-val">5+</div>
+          <div class="pstat-lbl">Years<br>Teaching</div>
         </div>
-      </div>
-      <div class="about-content fade-up delay-2">
-        <h3>A Passion for Teaching &amp; Technology</h3>
-        <p>I am a dedicated Lecturer in Computer Science and Engineering with a deep commitment to excellence in education, research, and mentorship. My academic journey has been driven by the belief that knowledge, when shared with clarity and enthusiasm, has the power to transform futures.</p>
-        <p>My teaching philosophy centers on connecting theoretical foundations with real-world applications — equipping students with both the conceptual understanding and practical skills they need to thrive in an ever-evolving technological landscape.</p>
-        <p>Beyond the classroom, I am actively engaged in research that bridges academic inquiry and industry relevance.</p>
-        <div class="info-list">
-          <div class="info-item">
-            <span class="info-icon">🎓</span>
-            <div><div class="info-text">Computer Science &amp; Engineering</div><div class="info-sub">Department &amp; Field of Expertise</div></div>
-          </div>
-          <div class="info-item">
-            <span class="info-icon">🔬</span>
-            <div><div class="info-text">Machine Learning &amp; NLP Research</div><div class="info-sub">Active Research Areas</div></div>
-          </div>
-          <div class="info-item">
-            <span class="info-icon">📍</span>
-            <div><div class="info-text">Bangladesh</div><div class="info-sub">Location</div></div>
-          </div>
+        <div class="pstat">
+          <div class="pstat-val">2</div>
+          <div class="pstat-lbl">IEEE<br>Papers</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val">4.00</div>
+          <div class="pstat-lbl">M.Sc<br>CGPA</div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<section id="skills">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="section-eyebrow">Expertise</span>
-      <h2 class="section-title">Skills &amp; Competencies</h2>
-      <div class="section-rule"></div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card fade-up delay-1">
-        <div class="skill-icon icon-blue">💻</div>
-        <h4>Programming Languages</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C / C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span>
+  <!-- Two-col zone -->
+  <div class="row-cols">
+
+    <!-- LEFT -->
+    <div class="col-left">
+
+      <div id="education" class="card">
+        <div class="card-head">
+          <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <h2>Education</h2>
+          <div class="ch-rule"></div>
+        </div>
+        <div class="card-body" style="padding:12px 14px;">
+          <table class="edu-table">
+            <thead>
+              <tr>
+                <th style="width:46%">Degree</th>
+                <th style="width:16%">Year</th>
+                <th>GPA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="edu-deg">M.Sc — CSE</div><div class="edu-inst">BRAC University</div></td>
+                <td style="color:var(--text-soft);font-size:12.5px;">2026</td>
+                <td><span class="cgpa-badge">4.00 / 4.00</span></td>
+              </tr>
+              <tr>
+                <td><div class="edu-deg">B.Sc — CSE</div><div class="edu-inst">BRAC University</div></td>
+                <td style="color:var(--text-soft);font-size:12.5px;">2023</td>
+                <td><span class="cgpa-badge">3.96 / 4.00</span></td>
+              </tr>
+              <tr>
+                <td><div class="edu-deg">B.Arch</div><div class="edu-inst">RUET <em style="font-size:11px;">(not completed)</em></div></td>
+                <td style="color:var(--text-soft);font-size:12.5px;">—</td>
+                <td><span class="na-badge">N/A</span></td>
+              </tr>
+              <tr>
+                <td><div class="edu-deg">HSC — Science</div><div class="edu-inst">Rajuk Uttara Model S&amp;C</div></td>
+                <td style="color:var(--text-soft);font-size:12.5px;">2016</td>
+                <td><span class="cgpa-badge">5.00 / 5.00</span></td>
+              </tr>
+              <tr>
+                <td><div class="edu-deg">SSC — Science</div><div class="edu-inst">Rajuk Uttara Model S&amp;C</div></td>
+                <td style="color:var(--text-soft);font-size:12.5px;">2014</td>
+                <td><span class="cgpa-badge">5.00 / 5.00</span></td>
+              </tr>
+              <tr>
+                <td><div class="edu-deg">JSC</div><div class="edu-inst">Rajuk Uttara Model S&amp;C</div></td>
+                <td style="color:var(--text-soft);font-size:12.5px;">2011</td>
+                <td><span class="cgpa-badge">5.00 / 5.00</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="skill-card fade-up delay-2">
-        <div class="skill-icon icon-teal">📐</div>
-        <h4>Core CSE Subjects</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Data Structures</span><span class="skill-tag">Algorithms</span><span class="skill-tag">OS</span><span class="skill-tag">DBMS</span><span class="skill-tag">Networks</span>
+
+      <div id="skills" class="card">
+        <div class="card-head">
+          <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <h2>Skills</h2>
+          <div class="ch-rule"></div>
+        </div>
+        <div class="card-body">
+          <div class="skill-block">
+            <div class="skill-cat">Programming Languages</div>
+            <div class="skill-tags">
+              <span class="stag">Java</span><span class="stag">Python</span><span class="stag">C++</span>
+              <span class="stag">JavaScript</span><span class="stag">PHP</span><span class="stag">SQL</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-cat">Spoken Languages</div>
+            <div class="skill-tags">
+              <span class="stag">Bangla — Native</span>
+              <span class="stag">English — Fluent</span>
+              <span class="stag">French — Fluent</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-cat">Tools &amp; Productivity</div>
+            <div class="skill-tags">
+              <span class="stag">Word / Docs</span><span class="stag">Excel / Sheets</span><span class="stag">PowerPoint</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-cat">Other Competencies</div>
+            <div class="skill-tags">
+              <span class="stag">Content Creation</span><span class="stag">Digital Illustration</span>
+              <span class="stag">Research Collab.</span><span class="stag">Project Management</span>
+              <span class="stag">YouTube (1k+ Subs)</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="skill-card fade-up delay-3">
-        <div class="skill-icon icon-coral">🤖</div>
-        <h4>Research &amp; AI</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Machine Learning</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">NLP</span><span class="skill-tag">Data Analysis</span>
+
+      <div class="card">
+        <div class="card-head">
+          <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <h2>Awards &amp; Honors</h2>
+          <div class="ch-rule"></div>
+        </div>
+        <div class="card-body">
+          <div class="award-item">
+            <svg class="award-star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Undergraduate Scholarship — BRAC University Academic Excellence
+          </div>
+          <div class="award-item">
+            <svg class="award-star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Vice Chancellor's List — multiple undergraduate semesters
+          </div>
+          <div class="award-item">
+            <svg class="award-star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Dean's List — undergraduate semester
+          </div>
         </div>
       </div>
-      <div class="skill-card fade-up delay-1">
-        <div class="skill-icon icon-purple">🛠️</div>
-        <h4>Tools &amp; Platforms</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Git</span><span class="skill-tag">Linux</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Jupyter</span><span class="skill-tag">LaTeX</span>
+
+    </div><!-- /.col-left -->
+
+    <!-- RIGHT -->
+    <div class="col-right">
+
+      <div id="experience" class="card">
+        <div class="card-head">
+          <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <h2>Work Experience</h2>
+          <div class="ch-rule"></div>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+
+            <div class="tl-item">
+              <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+              <div class="tl-right">
+                <div class="tl-header">
+                  <div class="tl-title">Lecturer</div>
+                  <div class="tl-duration">Jan 2023 – Present &nbsp;·&nbsp; ~3.5 yrs</div>
+                </div>
+                <div class="tl-sub">
+                  <span class="tl-org">Northern University, Bangladesh</span>
+                  <span class="tl-field">CSE</span>
+                </div>
+                <ul class="tl-resp">
+                  <li>Designed and delivered engaging lectures across core CSE courses</li>
+                  <li>Developed detailed course curriculum materials from scratch</li>
+                  <li>Assessed student progress through personalised consultations</li>
+                  <li>Supervised final-year projects and led active research groups</li>
+                  <li>Organised departmental seminars, workshops, and academic events</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+              <div class="tl-right">
+                <div class="tl-header">
+                  <div class="tl-title">Student Tutor</div>
+                  <div class="tl-duration">Oct 2021 – Dec 2022 &nbsp;·&nbsp; 1+ yr</div>
+                </div>
+                <div class="tl-sub">
+                  <span class="tl-org">BRAC University</span>
+                  <span class="tl-field">CSE</span>
+                </div>
+                <ul class="tl-resp">
+                  <li>Conducted interactive weekly lab sessions across multiple courses</li>
+                  <li>Graded assignments and provided detailed personalised feedback</li>
+                  <li>Held 15+ hours of weekly open consultations for students</li>
+                  <li>Assisted faculty in event and workshop organisation</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-left"><div class="tl-dot"></div></div>
+              <div class="tl-right">
+                <div class="tl-header">
+                  <div class="tl-title">Coaching Tutor</div>
+                  <div class="tl-duration">Mar 2019 – Sep 2021 &nbsp;·&nbsp; ~2.5 yrs</div>
+                </div>
+                <div class="tl-sub">
+                  <span class="tl-org">Multiple Coaching Centres</span>
+                  <span class="tl-field">Science</span>
+                </div>
+                <ul class="tl-resp">
+                  <li>Taught mathematics, physics, chemistry, and ICT to secondary students</li>
+                  <li>Created tailored lesson plans matched to individual student needs</li>
+                  <li>Conducted regular assessments with structured academic feedback</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-      <div class="skill-card fade-up delay-2">
-        <div class="skill-icon icon-amber">📚</div>
-        <h4>Teaching &amp; Pedagogy</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Curriculum Design</span><span class="skill-tag">Academic Writing</span><span class="skill-tag">Mentoring</span><span class="skill-tag">Lab Supervision</span>
+
+      <div id="research" class="card">
+        <div class="card-head">
+          <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <h2>Research &amp; Publications</h2>
+          <div class="ch-rule"></div>
+        </div>
+        <div class="card-body">
+
+          <div class="research-item">
+            <div class="pub-row">
+              <span class="badge-first">1st Author</span>
+              <span class="badge-pub">Published</span>
+              <span class="badge-conf">ICCIT 2024</span>
+            </div>
+            <p class="pub-title">Optimizing Energy Efficiency through Explainable AI: A Genetic Algorithm-Optimized Ensemble Method for Improved Decision-Making</p>
+            <a class="doi-link" href="https://doi.org/10.1109/ICCIT64611.2024.11022503" target="_blank" rel="noopener">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              DOI: 10.1109/ICCIT64611.2024.11022503
+            </a>
+          </div>
+
+          <div class="research-item">
+            <div class="pub-row">
+              <span class="badge-first">1st Author</span>
+              <span class="badge-pub">Published</span>
+              <span class="badge-conf">ICCIT 2023</span>
+            </div>
+            <p class="pub-title">An Effective Method for Detecting Tomato Leaf Disease Using Distributed Neural Network</p>
+            <a class="doi-link" href="https://doi.org/10.1109/ICCIT60459.2023.10441629" target="_blank" rel="noopener">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              DOI: 10.1109/ICCIT60459.2023.10441629
+            </a>
+          </div>
+
+          <div class="thesis-card">
+            <div class="thesis-label">M.Sc Thesis — In Progress</div>
+            <p class="thesis-title">Training Bangla speech foundation models from scratch using advanced self-supervised learning methods on moderate-scale architectures — exploring novel SSL objectives for low-resource language audio data.</p>
+          </div>
+
         </div>
       </div>
-      <div class="skill-card fade-up delay-3">
-        <div class="skill-icon icon-green">🌐</div>
-        <h4>Web &amp; Software</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">HTML / CSS</span><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">REST APIs</span><span class="skill-tag">MySQL</span>
+
+    </div><!-- /.col-right -->
+  </div><!-- /.row-cols -->
+
+  <!-- Certifications — full width -->
+  <div id="certifications" class="row-full">
+    <div class="card">
+      <div class="card-head">
+        <svg class="ch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <h2>Certifications &amp; Activities</h2>
+        <div class="ch-rule"></div>
+      </div>
+      <div class="card-body">
+        <div class="cert-grid">
+          <div class="cert-item"><span class="cert-chevron">›</span>Winner — <em>COVID-19 Combatants Unification Competition</em>, IEEE Computer Society</div>
+          <div class="cert-item"><span class="cert-chevron">›</span>Winner — <em>Academic Paper Review Contest</em>, IEEE Computer Society</div>
+          <div class="cert-item"><span class="cert-chevron">›</span>Certified: <em>Introduction to Cloud Computing with Microsoft Azure</em> — Microsoft Student Ambassadors</div>
+          <div class="cert-item"><span class="cert-chevron">›</span>Participant — <em>Web Tech Hackathon 2021</em></div>
+          <div class="cert-item"><span class="cert-chevron">›</span>Attended all sessions — IEEE Workshop on <em>Fighting COVID-19 Using Machine Learning</em></div>
+          <div class="cert-item"><span class="cert-chevron">›</span>Completed <em>Programming Language Activity</em>, BRAC University Residential Campus</div>
+          <div class="cert-item"><span class="cert-chevron">›</span>Multiple certified courses on <em>DataCamp</em>, <em>Red Hat</em>, and <em>Coursera</em></div>
+          <div class="cert-item"><span class="cert-chevron">›</span>Active participant in undergraduate-level programming contests</div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<section id="projects">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="section-eyebrow">Work &amp; Research</span>
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="section-rule"></div>
+  <!-- Training — 3 cols -->
+  <div id="training" class="row-3">
+    <div class="training-card">
+      <div class="train-name">Faculty Development Program</div>
+      <div class="train-dur">1 Week</div>
+      <p class="train-desc">Advanced teaching methods, curriculum design, and student engagement strategies for higher-education faculty.</p>
     </div>
-    <div class="projects-grid">
-      <div class="project-card accent-coral fade-up delay-1">
-        <span class="project-num">01</span>
-        <span class="project-tag tag-coral">Machine Learning</span>
-        <h4>Bangla Sentiment Analysis Using Deep Learning</h4>
-        <p>Developed an NLP pipeline to classify sentiment in Bangla social media text using LSTM and transformer-based architectures for high-accuracy results.</p>
-        <div class="project-techs">
-          <span class="tech-pill">Python</span><span class="tech-pill">LSTM</span><span class="tech-pill">BERT</span><span class="tech-pill">NLP</span>
-        </div>
+    <div class="training-card">
+      <div class="train-name">Research Mentorship &amp; Supervision</div>
+      <div class="train-dur">1 Week</div>
+      <p class="train-desc">Techniques for supervising student research, guiding project-based learning, and promoting independent academic inquiry.</p>
+    </div>
+    <div class="training-card">
+      <div class="train-name">Mental Health Awareness in Education</div>
+      <div class="train-dur">2 Days</div>
+      <p class="train-desc">Identifying mental health issues in students, providing initial support, and understanding institutional referral protocols.</p>
+    </div>
+  </div>
+
+  <!-- References — 3 cols -->
+  <div id="references" class="row-3">
+    <div class="ref-card">
+      <div class="ref-initial">GA</div>
+      <div class="ref-name">Dr. Golam Rabiul Alam</div>
+      <div class="ref-desg">Professor</div>
+      <div class="ref-inst">Dept. of CSE, BRAC University<br>Kha-224, Merul Badda, Dhaka 1212</div>
+      <div class="ref-contact">
+        <a href="mailto:rabiul.alam@bracu.ac.bd">rabiul.alam@bracu.ac.bd</a>
+        <span>+880 9638-464646 ext 1910</span>
       </div>
-      <div class="project-card accent-teal fade-up delay-2">
-        <span class="project-num">02</span>
-        <span class="project-tag tag-teal">Web Application</span>
-        <h4>Online Exam Management System</h4>
-        <p>Designed and built a full-stack platform for conducting, managing, and evaluating online examinations across multiple university departments.</p>
-        <div class="project-techs">
-          <span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">MySQL</span><span class="tech-pill">REST API</span>
-        </div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-initial">MI</div>
+      <div class="ref-name">Dr. Muhammad Iqbal Hossain</div>
+      <div class="ref-desg">Associate Professor</div>
+      <div class="ref-inst">Dept. of CSE, BRAC University<br>Kha-224, Merul Badda, Dhaka 1212</div>
+      <div class="ref-contact">
+        <a href="mailto:iqbal.hossain@bracu.ac.bd">iqbal.hossain@bracu.ac.bd</a>
+        <span>+880 9638-464646 ext 1915</span>
       </div>
-      <div class="project-card accent-blue fade-up delay-3">
-        <span class="project-num">03</span>
-        <span class="project-tag tag-blue">Computer Vision</span>
-        <h4>Automated Attendance via Face Recognition</h4>
-        <p>Built a real-time attendance system using facial recognition, reducing manual effort and improving classroom management accuracy significantly.</p>
-        <div class="project-techs">
-          <span class="tech-pill">OpenCV</span><span class="tech-pill">Python</span><span class="tech-pill">CNN</span><span class="tech-pill">SQLite</span>
-        </div>
-      </div>
-      <div class="project-card accent-coral fade-up delay-1">
-        <span class="project-num">04</span>
-        <span class="project-tag tag-coral">Data Science</span>
-        <h4>Predictive Analytics for Student Performance</h4>
-        <p>Applied supervised learning models to identify at-risk students early, enabling timely interventions and improved academic outcomes.</p>
-        <div class="project-techs">
-          <span class="tech-pill">Scikit-learn</span><span class="tech-pill">Pandas</span><span class="tech-pill">Random Forest</span><span class="tech-pill">Jupyter</span>
-        </div>
-      </div>
-      <div class="project-card accent-teal fade-up delay-2">
-        <span class="project-num">05</span>
-        <span class="project-tag tag-teal">Curriculum Dev</span>
-        <h4>Data Structures Lab Curriculum Redesign</h4>
-        <p>Overhauled the undergrad lab with hands-on challenges, peer-review grading, and project-based learning to boost student engagement.</p>
-        <div class="project-techs">
-          <span class="tech-pill">C++</span><span class="tech-pill">Java</span><span class="tech-pill">LMS</span><span class="tech-pill">Assessment Design</span>
-        </div>
-      </div>
-      <div class="project-card accent-blue fade-up delay-3">
-        <span class="project-num">06</span>
-        <span class="project-tag tag-blue">IoT</span>
-        <h4>Smart Classroom Monitoring System</h4>
-        <p>Prototyped an IoT-based system to monitor classroom environments and automate lighting and HVAC for energy efficiency.</p>
-        <div class="project-techs">
-          <span class="tech-pill">Arduino</span><span class="tech-pill">Raspberry Pi</span><span class="tech-pill">MQTT</span><span class="tech-pill">Python</span>
-        </div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-initial">SM</div>
+      <div class="ref-name">Syed Maruful Huq</div>
+      <div class="ref-desg">Assistant Professor</div>
+      <div class="ref-inst">Dept. of CSE, Northern University Bangladesh<br>Opp. Airport, Kawler, Dhaka-1230</div>
+      <div class="ref-contact">
+        <a href="mailto:maruful@gmail.com">maruful@gmail.com</a>
+        <span>+880 1975-077044</span>
       </div>
     </div>
   </div>
-</section>
 
-<footer>
-  <p>&copy; 2025 <strong>Tamanna Afroz</strong> &nbsp;·&nbsp; Lecturer, CSE &nbsp;·&nbsp; Made with <span class="footer-heart">♥</span></p>
+</div><!-- /.page-wrap -->
+
+<!-- ─── FOOTER ───────────────────────────────────────── -->
+<footer class="site-footer">
+  Tamanna Afroz &nbsp;·&nbsp; Dhaka, Bangladesh &nbsp;·&nbsp;
+  <a href="mailto:tamannaafroz137@gmail.com">tamannaafroz137@gmail.com</a> &nbsp;·&nbsp;
+  <a href="tel:+8801749025943">+880 1749-025943</a>
 </footer>
 
 <script>
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  const sections = document.querySelectorAll('[id]');
+  const links    = document.querySelectorAll('.nav-inner a');
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`.nav-inner a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => io.observe(s));
 </script>
 </body>
 </html>
